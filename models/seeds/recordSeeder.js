@@ -8,6 +8,7 @@ const User = require('../user')
 
 const db = require('../../config/mongoose')
 
+// 種子資料
 const SEED_USER = {
   name: 'root',
   email: 'root@example.com',
@@ -17,7 +18,7 @@ const SEED_USER = {
 db.once('open', () => {
   User.create( SEED_USER )
   .then(() => {
-    console.log('done.')
+    console.log('recordSeeder done.')
     process.exit()
   })
 })
