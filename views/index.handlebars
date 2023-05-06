@@ -1,21 +1,35 @@
-<table class="table table-striped">
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+{{!-- 下拉選單 --}}
+<div class="container my-5 text-center w-50">
+  <a class="dropdown-toggle btn btn-outline-secondary" href="#" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false">類別</a>
+
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">全部</a></li>
+    <li><a class="dropdown-item" href="#">家居物業</a></li>
+    <li><a class="dropdown-item" href="#">交通出行</a></li>
+    <li><a class="dropdown-item" href="#">休閒娛樂</a></li>
+    <li><a class="dropdown-item" href="#">餐飲食品</a></li>
+    <li><a class="dropdown-item" href="#">其他</a></li>
+  </ul>
+</div>
+
+<div class="container mb-5 h3 text-center">
+  總金額：80
+</div>
+
+<div class="container mb-5">
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <i></i>
+      飲食
+      <span class="badge bg-primary rounded-pill">80</span>
+      <div>
+        <a href="#" class="btn">修改</a>
+        <a href="#" class="btn">刪除</a>
+      </div>
+    </li>
+
+</div>
+<div class="container text-center">
+  <button class="btn btn-outline-primary w-50">新增支出</button>
+</div>
