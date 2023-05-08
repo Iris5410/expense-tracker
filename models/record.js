@@ -7,7 +7,7 @@ const recordSchema = new Schema({
   },
   date: {
     type: Date,
-    default: Date.now,
+    default: Date.now.toLocaleDateString,
     required: true
   },
   amount: {
@@ -25,6 +25,9 @@ const recordSchema = new Schema({
     ref: 'Category',
     index: true,
     required: true
+  },
+  image: {
+    type: String,
   }
 })
 
