@@ -4,7 +4,7 @@ const router = express.Router()
 const Category = require('../../models/category')
 const Record = require('../../models/record')
 
-// new 頁面
+// new page
 router.get('/new', async (req, res) => {
   const categories = await Category.find().lean()
   res.render('new', { categories })
@@ -27,7 +27,7 @@ router.post('/new', async (req, res) => {
   }
 })
 
-// edit 頁面
+// edit page
 router.get('/:id/edit', async (req, res) => {
   try {
     const categories = await Category.find().lean()
@@ -62,6 +62,7 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+// 刪除功能
 router.delete('/:id', (req, res) => {
   const _id = req.params.id
   return Record.findOneAndDelete({ _id })
