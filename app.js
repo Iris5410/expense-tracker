@@ -1,15 +1,16 @@
 const express = require('express')
 const session = require('express-session')
-const routes = require('./routes')
+const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 const app = express()
 const port = 3000
 
-const exphbs = require('express-handlebars')
-const methodOverride = require('method-override')
+const routes = require('./routes')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+const usePassport = require('./config/passport')
 
 require('./config/mongoose')
 
@@ -31,6 +32,9 @@ app.use((req, res, next) => {
 })
 
 app.use(methodOverride('_method'))
+
+usePassport(app)
+
 app.use(routes)
 
 app.listen(port, () => {

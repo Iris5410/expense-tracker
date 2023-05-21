@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 const User = require('../../models/user')
 
 // login page
@@ -38,5 +39,10 @@ router.post('/register', (req, res) => {
   .catch(err => console.log(err))
 })
 
+// 使用者登入
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/users/login'
+}))
 
 module.exports = router
