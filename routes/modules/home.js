@@ -7,7 +7,8 @@ const { totalAmount } = require('../../utilities/amount')
 
 router.get('/', async (req, res) => {
   try {
-    const records = await Record.find().lean() .sort({ date: 'asc' }) // 找出所有紀錄 並依日期排序
+    const userId = req.user._id
+    const records = await Record .find({ userId }) .lean() .sort({ date: 'asc' }) // 找出所有紀錄 並依日期排序
 
     // 找出categoryId
     const recordWithCategoryId = await Promise.all(records.map(async (record) => {
