@@ -12,13 +12,10 @@ router.get('/', async (req, res) => {
     // 找出categoryId
     const recordWithCategoryId = await Promise.all(records.map(async (record) => {
       const categoryId = record.categoryId
-      console.log(categoryId)
       const category = await Category.findOne({ _id: categoryId }).lean()
-      console.log(category)
       return {
-        name: record.name,
+        ...record,
         date: record.date.toLocaleDateString(),
-        amount: record.amount,
         image: category.icon
       }
     }))

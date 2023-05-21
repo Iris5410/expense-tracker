@@ -27,4 +27,39 @@ router.post('/new', async (req, res) => {
   }
 })
 
+// edit 頁面
+router.get('/:id/edit', async (req, res) => {
+  try {
+    const categories = await Category.find().lean()
+    const _id = req.params.id
+    const record = await Record.findOne({ _id }).lean()
+    const category = await Category.findOne({ _id: record.categoryId }).lean()
+    record.categoryName = category.name
+    record.date = record.date.toISOString().slice(0, 10)
+    res.render('edit', { categories, record })
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+// 修改支出
+router.put('/:id', async (req, res) => {
+  try {
+    const _id = req.params.id
+    const { name, date, categoryId, amount } = req.body
+    return Record.findOneAndUpdate(
+      { _id },
+      {
+        name,
+        date,
+        categoryId,
+        amount
+      })
+      .then(() => res.redirect('/'))
+      .catch(err => console.log(err))
+  } catch (err) {
+    console.log(err)
+  }
+})
+
 module.exports = router

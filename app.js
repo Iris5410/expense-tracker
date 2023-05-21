@@ -4,6 +4,7 @@ const app = express()
 const port = 3000
 
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use(methodOverride('_method'))
 app.use(routes)
 
 app.listen(port, () => {
