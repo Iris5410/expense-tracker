@@ -15,22 +15,20 @@
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 mx-5 h1"><a href="/" class="navbar-brand">家庭記帳本</a></span>
+        <a href="/" class="navbar-brand mx-3">{{#if isAuthenticated}}{{ user.name}}'s {{/if}}家庭記帳本</a>
+        {{#if isAuthenticated}}
         <a href="/users/logout" class="btn">登出</a>
+        {{else}}
+        <a href="/users/login" class="btn">登入</a>
+        {{/if}}
       </div>
     </nav>
 
   <main>
     <div class="d-flex flex-column">
-      
-
-          {{{body}}}
-
-      
+          {{{body}}}     
     </div>
   </main>
-
-
 
 
   {{!-- bootstrap --}}
