@@ -12,7 +12,9 @@ router.get('/', async (req, res) => {
     // 找出categoryId
     const recordWithCategoryId = await Promise.all(records.map(async (record) => {
       const categoryId = record.categoryId
+      console.log(categoryId)
       const category = await Category.findOne({ _id: categoryId }).lean()
+      console.log(category)
       return {
         name: record.name,
         date: record.date.toLocaleDateString(),
@@ -20,7 +22,6 @@ router.get('/', async (req, res) => {
         image: category.icon
       }
     }))
-    console.log(recordWithCategoryId)
     res.render('index', { records: recordWithCategoryId, totalAmount: totalAmount(records) })
   } catch (err) {
     console.log(err)

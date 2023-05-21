@@ -17,19 +17,20 @@ const SEED_USER = {
 }
 
 const SEED_RECORD = [
-  { name: '洗衣服', amount: 20, category: '家居物業' },
-  { name: '機車加油', amount: 150, category: '交通出行' },
-  { name: '運動鞋', amount: 2700, category: '其他' },
-  { name: '麻辣烤魚', amount: 1599, category: '餐飲食品' },
-  { name: '水電費', amount: 500, category: '家居物業' },
-  { name: '串燒', amount: 1300, category: '餐飲食品' },
-  { name: '回診拿藥', amount: 1680, category: '其他' }
+  { name: '洗衣服', amount: 20, category: '家居物業', date: Date.now() },
+  { name: '機車加油', amount: 150, category: '交通出行', date: Date.now() },
+  { name: '運動鞋', amount: 2700, category: '其他', date: Date.now() },
+  { name: '麻辣烤魚', amount: 1599, category: '餐飲食品', date: Date.now() },
+  { name: '水電費', amount: 500, category: '家居物業', date: Date.now() },
+  { name: '串燒', amount: 1300, category: '餐飲食品', date: Date.now() },
+  { name: '回診拿藥', amount: 1680, category: '其他', date: Date.now() }
 ]
 
 db.once('open', async () => {
   try {
     const categories = await Category.find().lean()
 
+    // 找出categoryId
     const recordWithCategoryId = SEED_RECORD.map(record => {
       for (const category of categories) {
         if (record.category === category.name) {
@@ -37,11 +38,13 @@ db.once('open', async () => {
           return {
             name: record.name,
             amount: record.amount,
-            categoryId
+            categoryId,
+            date: record.date
           }
         }
       }
     })
+    // create seed data
     const user = await User.create(SEED_USER)
     for (const record of recordWithCategoryId) {
       record.userId = user._id
