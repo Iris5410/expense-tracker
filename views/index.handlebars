@@ -30,7 +30,9 @@
       <span class="badge bg-primary rounded-pill me-5" style="font-size: 0.95em">{{ this.amount }}</span>
       <div>
         <a href="/records/{{ this._id }}/edit" class="btn">修改</a>
-        <a href="#" class="btn">刪除</a>
+        <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button type="submit" class="btn">刪除</button>
+        </form>
       </div>
     </li>
     {{/each}}
