@@ -1,44 +1,43 @@
-# URL-Shortener
-A web application for shortening you URL.
+# Expense-tracker
+一個簡易記帳的應用程式
 
-## Features
-* transforming long, ugly URLs into shorts    
-* simply copy the short link    
-* redirect to the original URL through the shortened URL    
+## 功能
+* 可以註冊帳號，在登入後才能使用記帳功能    
+* 能記錄新的一筆帳、編輯、刪除    
+* 首頁能看到所有帳目及花費總金額    
+* 首頁也可以篩選帳目的類別進行瀏覽    
 
-## Project Installation Process
-1. Please make sure that Node.js and npm are installed.
-2. Open Terminal and clone this project to your local computer.
-3. Install the required dependencies :
+## 專案安裝
+1. 請確認本地端已安裝 Node.js 和 npm
+2. 將此專案 clone 到本地
+3. 安裝與此專案相關之套件：
   ```bash
-  npm i express@4.17.1 express-handlebars@4.0.2 
+  npm install
   ```    
-4. Install mongoose :
+4. 匯入種子資料：
   ```bash
-  npm i mongoose@5.9.7 
+  npm run seed
   ```    
-5. Install nodemon :
+  若成功運行，終端機會顯示：    
+  categorySeeder done.
+  recordSeeder done.    
+  並且會產生一組使用者，帳號密碼如下：    
+  Email: root@example.com
+  Password: qweqwe    
+5. 啟動伺服器：
   ```bash
-  npm i nodemon 
+  npm run dev
   ```    
-6. After installation is complete, start the server :
-  ```bash
-  npm run dev 
-  ```    
-7. If you see the message below, it means the program is running successfully :
+6. 終端機上有看見以下字串就代表成功運作了：
   ```bash 
   App is running on localhost:3000
   mongodb connected! 
   ```    
-8. You can access it through this URL :
-  ```bash
-  http://localhost:3000  
-  ```    
 
-## Development Tools
-* Node.js 14.16.0    
-* Express 4.17.1    
-* Express-Handlebars 4.0.2    
+## 開發工具
+* Node.js 15.9.0    
+* Express 4.16.4    
+* Express-Handlebars 3.0.0    
 * Bootstrap 5.0.2    
 * MongoDB    
 * mongoose 5.9.7    
