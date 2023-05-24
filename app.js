@@ -11,7 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 const usePassport = require('./config/passport')
 
 require('./config/mongoose')
