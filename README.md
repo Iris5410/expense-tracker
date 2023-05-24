@@ -18,12 +18,16 @@
   ```bash
   npm run seed
   ```    
-  若成功運行，終端機會顯示：    
+  若成功運行，終端機會顯示：
+  ```bash
   categorySeeder done.
-  recordSeeder done.    
-  並且會產生一組使用者，帳號密碼如下：    
+  recordSeeder done.
+  ```     
+  並且會產生一組使用者，帳號密碼如下：
+  ```bash
   Email: root@example.com
-  Password: qweqwe    
+  Password: qweqwe  
+  ```     
 5. 啟動伺服器：
   ```bash
   npm run dev
