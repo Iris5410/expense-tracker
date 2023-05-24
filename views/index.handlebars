@@ -4,12 +4,12 @@
     aria-expanded="false">類別</a>
 
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">全部</a></li>
-    <li><a class="dropdown-item" href="#">家居物業</a></li>
-    <li><a class="dropdown-item" href="#">交通出行</a></li>
-    <li><a class="dropdown-item" href="#">休閒娛樂</a></li>
-    <li><a class="dropdown-item" href="#">餐飲食品</a></li>
-    <li><a class="dropdown-item" href="#">其他</a></li>
+    <li><a class="dropdown-item" href="/">全部</a></li>
+    <li><a class="dropdown-item" href="/search?category=家居物業">家居物業</a></li>
+    <li><a class="dropdown-item" href="/search?category=交通出行">交通出行</a></li>
+    <li><a class="dropdown-item" href="/search?category=休閒娛樂">休閒娛樂</a></li>
+    <li><a class="dropdown-item" href="/search?category=餐飲食品">餐飲食品</a></li>
+    <li><a class="dropdown-item" href="/search?category=其他">其他</a></li>
   </ul>
 </div>
 
@@ -31,7 +31,8 @@
       <div>
         <a href="/records/{{ this._id }}/edit" class="btn">修改</a>
         <form action="/records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-          <button type="submit" class="btn">刪除</button>
+          <button type="submit" class="btn btn-link link-danger"
+            onclick="return confirm(`確定要刪除 {{ this.name }} 嗎？`)">刪除</button>
         </form>
       </div>
     </li>
