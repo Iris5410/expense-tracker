@@ -14,9 +14,9 @@ module.exports = app => {
         if (!user) {
           return done(null, false, req.flash('warning_msg', '此 Email 尚未註冊。'))
         }
-        return bcrypt.compare(password, user.password) .then(isMatch => {
+        return bcrypt.compare(password, user.password).then(isMatch => {
           if (!isMatch) {
-            return done(null, false, req.flash('warning_msg', 'Email或密碼錯誤。' ))
+            return done(null, false, req.flash('warning_msg', 'Email或密碼錯誤。'))
           }
           return done(null, user)
         })
